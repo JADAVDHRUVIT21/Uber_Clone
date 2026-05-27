@@ -1,7 +1,21 @@
+const express = require('express');
 const http = require('http');
-const app = require('./app');
+const cookieParser = require('cookie-parser');
+require('dotenv').config();
 
-const port = process.env.PORT || 3000;
+const connectToDb = require('./db/db');
+const userRoutes = require('./routes/user.routes');
+
+const app = express();
+
+connectToDb();
+
+app.use(express.json());
+app.use(cookieParser());
+
+app.use('/users', userRoutes);
+
+const port = process.env.PORT || 4000;
 
 const server = http.createServer(app);
 
