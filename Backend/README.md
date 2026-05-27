@@ -1,32 +1,36 @@
 # Backend API Documentation
 
-## '/users/register' Endpoint
+## `/users/register` Endpoint
 
 ### Description
 
-Registers a new user by creating a user account with
+Registers a new user by creating a user account with the provided information.
 
 ### HTTP Method
 
-`POST'
+`POST`
 
 ### Request Body
 
 The request body should be in JSON format and include the following fields:
 
-- 'fullname'(object):
-  -'firstname' (string, required): User's first name (minimum 3 characters).
-  -'lastname' (string, required): User's email address (minimum 3 characters).
-- `email' (string, required): User's email address (must be a valid email).
-- `password` (string, required): User's password (minimum 6 characters).
+- `fullname` (object):
+  - `firstname` (string, required): User's first name (minimum 3 characters).
+  - `lastname` (string, required): User's last name (minimum 3 characters).
+
+- `email` (string, required):  
+  User's email address (must be a valid email).
+
+- `password` (string, required):  
+  User's password (minimum 6 characters).
 
 ### Example Response
 
-- 'user'(object):
- -'fullname' (object).
-  -'firstname' (string): User's first name (minimum 3 characters).
-  -'lastname' (string): User's email address (minimum 3 characters).
- - `email' (string): User's email address (must be a valid email).
- - `password` (string): User's password (minimum 6 characters).
+- `user` (object):
+  - `fullname` (object):
+    - `firstname` (string): User's first name (minimum 3 characters).
+    - `lastname` (string): User's last name (minimum 3 characters).
+  - `email` (string): User's email address (must be a valid email).
+  - `password` (string): User's password (minimum 6 characters).
 
--'token' (String) : JWT Token
+- `token` (String): JWT Token
