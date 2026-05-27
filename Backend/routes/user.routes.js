@@ -18,6 +18,11 @@ router.post(
     userController.registerUser
 );
 
-router.get('/profile', userController.getUserProfile);
+// router.get('/profile', userController.getUserProfile);
+
+router.post('/login',[
+    body('email').isEmail().withMessage('Invalid email address'),
+    body('password').notEmpty().withMessage('Password is required')
+], userController.loginUser);
 
 module.exports = router;
