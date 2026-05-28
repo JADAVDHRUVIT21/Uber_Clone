@@ -16,37 +16,31 @@ The request body should be in JSON format and include the following fields:
 
 - `fullname` (object):
   - `firstname` (string, required): User's first name (minimum 3 characters).
-  - `lastname` (string, required): User's last name (minimum 3 characters).
-
-- `email` (string, required):  
-  User's email address (must be a valid email).
-
-- `password` (string, required):  
-  User's password (minimum 6 characters).
+  - `lastname` (string, optional): User's last name (minimum 3 characters).
+- `email` (string, required): User's email address (must be a valid email).
+- `password` (string, required): User's password (minimum 6 characters).
 
 ### Example Response
 
 - `user` (object):
-  - `fullname` (object):
+  - `fullname` (object).
     - `firstname` (string): User's first name (minimum 3 characters).
-    - `lastname` (string): User's last name (minimum 3 characters).
+    - `lastname` (string): User's last name (minimum 3 characters).   
   - `email` (string): User's email address (must be a valid email).
   - `password` (string): User's password (minimum 6 characters).
-
 - `token` (String): JWT Token
 
 ## `/users/login` Endpoint
 
 ### Description
 
-Authenticates a user by verifying their email and password, and returns a JWT token for subsequent authenticated requests.
+Authenticates a user using their email and password, returning a JWT token upon successful login.
 
 ### HTTP Method
 
 `POST`
 
-
-### Endpoint 
+### Endpoint
 
 `/users/login`
 
@@ -54,50 +48,49 @@ Authenticates a user by verifying their email and password, and returns a JWT to
 
 The request body should be in JSON format and include the following fields:
 
--`email` (string, required): User's email address (must be a valid email).
+- `email` (string, required): User's email address (must be a valid email).
 - `password` (string, required): User's password (minimum 6 characters).
 
 ### Example Response
+
 - `user` (object):
-  - `fullname` (object):
+  - `fullname` (object).
     - `firstname` (string): User's first name (minimum 3 characters).
-    - `lastname` (string): User's last name (minimum 3 characters).
+    - `lastname` (string): User's last name (minimum 3 characters).   
   - `email` (string): User's email address (must be a valid email).
   - `password` (string): User's password (minimum 6 characters).
-
 - `token` (String): JWT Token
 
-  ## `/users/profile` Endpoint
+## `/users/profile` Endpoint
 
-  ### Description
+### Description
 
-  Retrieves the authenticated user's profile information. Requires valid authentication token.
+Retrieves the profile information of the currently authenticated user.
 
-  ### HTTP Method
+### HTTP Method
 
-  `GET`
+`GET`
 
-  ### Authentication
+### Authentication
 
-  Requires a valid JWT token in the Authorization header:
-Authorization: Bearer <token>'
+Requires a valid JWT token in the Authorization header:
+`Authorization: Bearer <token>`
 
 ### Example Response
 
 - `user` (object):
-  - `fullname` (object):
+  - `fullname` (object).
     - `firstname` (string): User's first name (minimum 3 characters).
-    - `lastname` (string): User's last name (minimum 3 characters).
+    - `lastname` (string): User's last name (minimum 3 characters).   
   - `email` (string): User's email address (must be a valid email).
-  - `password` (string): User's password (minimum 6 characters).
-  
+
 
 
 ## `/users/logout` Endpoint
 
 ### Description
 
-Logout the current user and blacklist the token provided in cookie or headers 
+Logout the current user and blacklist the token provided in cookie or headers
 
 ### HTTP Method
 
